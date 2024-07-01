@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration and Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+      h2 {
+        text-align: center;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background: #007bff;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      .message {
+        text-align: center;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Register</h2>
+      <input type="text" id="registerEmail" placeholder="Email" />
+      <input type="password" id="registerPassword" placeholder="Password" />
+      <input
+        type="text"
+        id="registerStudentNumber"
+        placeholder="Student Number"
+      />
+      <input type="text" id="registerUniversity" placeholder="University" />
+      <input type="text" id="registerCollege" placeholder="College" />
+      <input type="text" id="registerMajor" placeholder="Major" />
+      <input type="text" id="registerClassId" placeholder="Class ID" />
+      <input type="text" id="registerRole" placeholder="Role" />
+      <input type="text" id="registerName" placeholder="Name" />
+      <button onclick="register()">Register</button>
+      <div class="message" id="registerMessage"></div>
+      <h2>Login</h2>
+      <input type="text" id="loginEmail" placeholder="Email" />
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <button onclick="login()">Login</button>
+      <div class="message" id="loginMessage"></div>
+    </div>
+
+    <script>
+      async function register() {
+        const email = document.getElementById("registerEmail").value;
+        const password = document.getElementById("registerPassword").value;
+        const student_number = document.getElementById(
+          "registerStudentNumber"
+        ).value;
+        const university = document.getElementById("registerUniversity").value;
+        const college = document.getElementById("registerCollege").value;
+        const major = document.getElementById("registerMajor").value;
+        const class_id = document.getElementById("registerClassId").value;
+        const role = document.getElementById("registerRole").value;
+        const name = document.getElementById("registerName").value;
+
+        const response = await fetch("http://localhost:8000/users/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+            student_number,
+            university,
+            college,
+            major,
+            class_id: parseInt(class_id),
+            role,
+            name,
+          }),
+        });
+
+        const data = await response.json();
+        const message = document.getElementById("registerMessage");
+
+        if (response.status === 200) {
+          message.style.color = "green";
+          message.innerText = "Registration successful";
+        } else {
+          message.style.color = "red";
+          message.innerText = data.detail || "Registration failed";
+        }
+      }
+
+      async function login() {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+
+        const response = await fetch("http://localhost:8000/users/token", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            username: email,
+            password,
+          }),
+        });
+
+        const data = await response.json();
+        const message = document.getElementById("loginMessage");
+
+        if (response.status === 200) {
+          message.style.color = "green";
+          message.innerText = "Login successful";
+          console.log("Access token:", data.access_token);
+        } else {
+          message.style.color = "red";
+          message.innerText = data.detail || "Login failed";
+        }
+      }
+    </script>
+  </body>
+</html>

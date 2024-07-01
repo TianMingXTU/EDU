@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>聊天系统</title>
+    <!-- <link rel="stylesheet" type="text/css" href="try_css/try5_css.css"/> -->
+    <link rel="stylesheet" type="text/css" href="./css/try2_css.css" />
+    <link rel="stylesheet" type="text/css" href="./css/try3_css.css" />
+    <link rel="stylesheet" type="text/css" href="./css/try1_css.css" />
+    <link rel="stylesheet" type="text/css" href="./css/try4_css.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- <script type="module" src="./try.js"></script> -->
+  </head>
+
+  <body class>
+    <div class="body">
+      <div class="home_container__4PEJZ home_container__4PEJZ">
+        <!-- 边栏 -->
+        <div class="home_sidebar__fPZfq false">
+          <!-- 1、边栏头部整体设计 -->
+          <div class="home_sidebar-header___NHg_" data-tauri-drag-region="true">
+            <!-- 边栏头部 -->
+            <div
+              class="home_sidebar-title__l3KhW"
+              data-tauri-drag-region="true"
+            >
+              OBEvolution AI
+            </div>
+            <!-- 边栏头部副标题 -->
+            <div class="home_sidebar-sub-title__sbT6Z">
+              <style>
+                button {
+                  color: #444444;
+                  background: #f3f3f3;
+                  border: 1px #dadada solid;
+                  padding: 5px 10px;
+                  border-radius: 2px;
+                  font-weight: bold;
+                  font-size: 9pt;
+                  outline: none;
+                }
+                button:hover {
+                  border: 1px #c6c6c6 solid;
+                  box-shadow: 1px 1px 1px #eaeaea;
+                  color: #333333;
+                  background: #f7f7f7;
+                }
+                button:active {
+                  box-shadow: inset 1px 1px 1px #dfdfdf;
+                }
+              </style>
+              <div id="shiny-shadow">
+                <p>基于ChatGPT的数字人教辅系统</p>
+              </div>
+            </div>
+            <!-- 边栏头部logo -->
+            <div class="home_sidebar-logo__Cd7hL no-dark">
+              <img src="img/ChatGPT.png" width="44" height="44" />
+            </div>
+          </div>
+          <!-- 2、边栏中间部分--个人中心--更多了解 -->
+          <div class="home_sidebar-header-bar__SVjIN">
+            <!-- 按键1：个人中心 -->
+            <button
+              class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined home_sidebar-bar-button__zJdvw clickable undefined"
+              role="button"
+              onclick="creat_personal_info(event)"
+            >
+              <div class="button_icon-button-icon__AMZta false">
+                <i class="fas fa-user user_icon"></i>
+              </div>
+              <div class="button_icon-button-text__my76e">个人中心</div>
+            </button>
+            <!-- 按键2：更多了解 -->
+            <button
+              class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined home_sidebar-bar-button__zJdvw clickable undefined"
+              role="button"
+              onclick="creat_know_more(event)"
+            >
+              <div class="button_icon-button-icon__AMZta false">
+                <i class="fas fa-info-circle info_icon"></i>
+              </div>
+              <div class="button_icon-button-text__my76e">更多了解</div>
+            </button>
+          </div>
+
+          <!-- 3、边栏内容，新的对话，朋友等 -->
+          <div class="home_sidebar-body__9zbei">
+            <div id="chat_side_bar">
+              <!-- 另一个class属性：home_chat-item-selected__b6eBe -->
+              <div
+                class="home_chat-item__Oblai false"
+                data-room-id="private_assistant"
+                onclick="selectRoom(event)"
+              >
+                <div class="home_chat-item-title__sRstw">你的私人助手</div>
+                <div class="home_chat-item-info__9r6z_">
+                  <div class="home_chat-item-count____Lpy">群成员数量：1人</div>
+                </div>
+                <div
+                  class="home_chat-item-delete__3qV5m"
+                  onclick="deleteChatRoom(event)"
+                >
+                  <i class="fas fa-trash delete_icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4、边栏底部：设置，公告，新增聊天  -->
+          <div class="home_sidebar-tail__T2_u7">
+            <!-- 边栏底部左边：设置，公告 -->
+            <div class="home_sidebar-actions__LcDT9">
+              <!-- 移动端：关闭会话 -->
+              <div class="home_sidebar-action__IVfyJ home_mobile__Wfp_k">
+                <button
+                  class="button_icon-button__VwAMf undefined undefined undefined clickable undefined"
+                  role="button"
+                >
+                  <div class="button_icon-button-icon__AMZta false">
+                    <i class="fas fa-times delete_icon"></i>
+                  </div>
+                </button>
+              </div>
+              <!-- 公告 -->
+              <div
+                class="home_sidebar-action__IVfyJ"
+                onclick="creat_news(event)"
+              >
+                <button
+                  class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined clickable undefined"
+                  role="button"
+                >
+                  <div class="button_icon-button-icon__AMZta false">
+                    <i class="fas fa-bullhorn notice_icon"></i>
+                  </div>
+                </button>
+              </div>
+              <!-- 作者的碎碎念 -->
+              <div
+                class="home_sidebar-action__IVfyJ"
+                onclick="show_author_ramblings(event)"
+              >
+                <button
+                  class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined clickable undefined"
+                  role="button"
+                >
+                  <div class="button_icon-button-icon__AMZta false">
+                    <i class="fas fa-comment-dots author_icon"></i>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- 边栏底部右边：加入聊天 -->
+            <div>
+              <button
+                class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined clickable undefined"
+                role="button"
+                onclick="joinRoom(event)"
+              >
+                <div class="button_icon-button-icon__AMZta false">
+                  <i class="fas fa-plus add_icon"></i>
+                </div>
+                <div class="button_icon-button-text__my76e">加入聊天</div>
+              </button>
+            </div>
+            <!-- 边栏底部右边：新增聊天 -->
+            <div>
+              <button
+                class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined clickable undefined"
+                role="button"
+                onclick="creat_chatroom_name(event)"
+              >
+                <div class="button_icon-button-icon__AMZta false">
+                  <i class="fas fa-plus add_icon"></i>
+                </div>
+                <div class="button_icon-button-text__my76e">新的聊天</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- 5、边栏与聊天界面空隙 -->
+          <div class="home_sidebar-drag__G9SJI">
+            <i class="fas fa-arrows-alt"></i>
+          </div>
+
+          <!-- 6、公告 -->
+          <div class="modal-mask3" style="display: none">
+            <div
+              class="ui-lib_modal-container__V07hJ false"
+              style="
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              "
+            >
+              <div class="ui-lib_modal-header__ez8kk">
+                <div class="ui-lib_modal-title__uDyyZ">公告</div>
+                <div
+                  class="ui-lib_modal-header-actions__sGgzm"
+                  onclick="hide_news(event)"
+                >
+                  <div class="ui-lib_modal-header-action__TQHsu">
+                    <button
+                      class="button_icon-button__VwAMf button_border__F3gcK undefined undefined clickable undefined"
+                      role="button"
+                    >
+                      <div class="button_icon-button-text__my76e">关闭</div>
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-lib_modal-content___F0dm">
+                <div>
+                  <div
+                    style="
+                      text-align: center;
+                      font-size: 20px;
+                      line-height: 40px;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    网站公告
+                  </div>
+                  <div><p></p></div>
+                </div>
+              </div>
+              <div
+                class="ui-lib_modal-footer__U6Gef"
+                onclick="hide_news(event)"
+              >
+                <div class="ui-lib_modal-actions__Ag5eX">
+                  <div class="ui-lib_modal-action__o5vae">
+                    <button
+                      class="button_icon-button__VwAMf button_border__F3gcK undefined undefined clickable undefined"
+                      role="button"
+                    >
+                      <div class="button_icon-button-text__my76e">关闭</div>
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7、了解更多 -->
+          <div class="modal-mask2" style="display: none">
+            <div
+              class="ui-lib_modal-container__V07hJ false"
+              style="
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              "
+            >
+              <div class="ui-lib_modal-header__ez8kk">
+                <div class="ui-lib_modal-title__uDyyZ">了解更多</div>
+                <div
+                  class="ui-lib_modal-header-actions__sGgzm"
+                  onclick="hide_know_more(event)"
+                >
+                  <div class="ui-lib_modal-header-action__TQHsu">
+                    <button
+                      class="button_icon-button__VwAMf button_border__F3gcK undefined undefined clickable undefined"
+                      role="button"
+                    >
+                      <div class="button_icon-button-text__my76e">关闭</div>
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-lib_modal-content___F0dm">
+                <div>
+                  <div
+                    style="
+                      text-align: center;
+                      font-size: 20px;
+                      line-height: 40px;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    更多网站信息
+                  </div>
+                  <div><p></p></div>
+                </div>
+              </div>
+              <div
+                class="ui-lib_modal-footer__U6Gef"
+                onclick="hide_know_more(event)"
+              >
+                <div class="ui-lib_modal-actions__Ag5eX">
+                  <div class="ui-lib_modal-action__o5vae">
+                    <button
+                      class="button_icon-button__VwAMf button_border__F3gcK undefined undefined clickable undefined"
+                      role="button"
+                    >
+                      <div class="button_icon-button-text__my76e">关闭</div>
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8、个人中心 -->
+          <div class="modal-mask1" style="display: none">
+            <div class="ui-lib_modal-container__V07hJ false">
+              <div class="ui-lib_modal-header__ez8kk">
+                <div class="ui-lib_modal-title__uDyyZ">个人中心</div>
+                <div
+                  class="ui-lib_modal-header-actions__sGgzm"
+                  onclick="hide_personal_info(event)"
+                >
+                  <div class="ui-lib_modal-header-action__TQHsu">
+                    <button
+                      class="button_icon-button__VwAMf button_border__F3gcK undefined undefined clickable undefined"
+                      role="button"
+                    >
+                      <div class="button_icon-button-text__my76e">关闭</div>
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-lib_modal-content___F0dm">
+                <div>
+                  <div
+                    style="
+                      text-align: center;
+                      font-size: 20px;
+                      line-height: 40px;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    你的信息
+                  </div>
+                  <div><p></p></div>
+                </div>
+              </div>
+              <div
+                class="ui-lib_modal-footer__U6Gef"
+                onclick="hide_personal_info(event)"
+              >
+                <div class="ui-lib_modal-actions__Ag5eX">
+                  <div class="ui-lib_modal-action__o5vae">
+                    <button
+                      class="button_icon-button__VwAMf button_border__F3gcK undefined undefined clickable undefined"
+                      role="button"
+                    >
+                      <div class="button_icon-button-text__my76e">关闭</div>
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9、作者的碎碎念 -->
+          <div class="modal-mask6" style="display: none">
+            <div
+              class="ui-lib_modal-container__V07hJ false"
+              style="
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              "
+            >
+              <div class="ui-lib_modal-header__ez8kk">
+                <div class="ui-lib_modal-title__uDyyZ">作者的碎碎念</div>
+                <div
+                  class="ui-lib_modal-header-actions__sGgzm"
+                  onclick="hide_author_ramblings(event)"
+                >
+                  <div class="ui-lib_modal-header-action__TQHsu">
+                    <button
+                      class="button_icon-button__VwAMf button_border__F3gcK undefined undefined clickable undefined"
+                      role="button"
+                    >
+                      <div class="button_icon-button-text__my76e">关闭</div>
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-lib_modal-content___F0dm">
+                <div>
+                  <div
+                    style="
+                      text-align: center;
+                      font-size: 20px;
+                      line-height: 40px;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    开发者Q的碎碎念
+                  </div>
+                  <div>
+                    <p>如果说 理想只能这样</p>
+                    <p>轻易的 被折断了翅膀</p>
+                    <p>是不是 我也应该忘记 奔跑</p>
+                    <p>如果说 现实不可阻挡 没有人 愿意冲破迷茫</p>
+                    <p>可为何 我总不甘于彷徨 告诉我 预言黑夜的曙光 不算假象</p>
+                    <p>
+                      迷雾里 总有人赌上那希望 不肯退让 失败也淋漓酣畅 跌倒受伤
+                      也无妨
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ui-lib_modal-footer__U6Gef"
+                onclick="hide_author_ramblings(event)"
+              >
+                <div class="ui-lib_modal-actions__Ag5eX">
+                  <div class="ui-lib_modal-action__o5vae">
+                    <button
+                      class="button_icon-button__VwAMf button_border__F3gcK undefined undefined clickable undefined"
+                      role="button"
+                    >
+                      <div class="button_icon-button-text__my76e">关闭</div>
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 聊天界面 -->
+        <div class="home_window-content__2WGYf" id="app-body">
+          <div class="chat_chat__ZebHg">
+            <!-- 1、聊天界面：头部 -->
+            <div class="window-header" data-tauri-drag-region="true">
+              <!-- 聊天界面左侧头部标题 -->
+              <div class="window-header-title chat_chat-body-title__d2ItC">
+                <div
+                  class="window-header-main-title chat_chat-body-main-title__jUL6h"
+                >
+                  聊天室
+                </div>
+                <div class="window-header-sub-title">AI聊天教辅系统</div>
+              </div>
+              <!-- 聊天界面右侧按键选择 -->
+              <div>
+                <div class="window-actions">
+                  <!-- 分享 -->
+                  <div class="window-action-button">
+                    <button
+                      class="button_icon-button__VwAMf button_border__F3gcK undefined undefined clickable undefined"
+                      title="分享本页"
+                      role="button"
+                    >
+                      <div class="button_icon-button-icon__AMZta false">
+                        <i class="fas fa-share" aria-hidden="true"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- 聊天智能图标 -->
+              <div class="chat_prompt-toast___VCUf"></div>
+            </div>
+
+            <!-- 2、聊天界面：中部 -->
+            <div
+              class="chat_chat-body__QFv4x"
+              style="display: flex; flex-direction: row-reverse"
+            >
+              <!-- 5、中部右侧群成员、数字人显示区 -->
+              <div class="chat_chat_body_people">
+                <!-- 显示区标题 -->
+                <div class="chat_chat_body_people_header">数字人显示区：</div>
+                <!-- 数字人成员 -->
+                <div class="chat_chat_body_people_members">
+                  <!-- chat_chat_body_people_member -->
+                </div>
+              </div>
+              <!-- 2、聊天界面：中部内容显示区 -->
+              <div class="chat_chat-body__QFv5x">
+                <!-- 用户对话框 -->
+                <div class="chat_chat-message-user__ZtTEj">
+                  <div class="chat_chat-message-container__O_X8_">
+                    <!-- 用户对话框头像 -->
+                    <div class="chat_chat-message-header__Dny_K">
+                      <div class="chat_chat-message-avatar__3QeMq">
+                        <!-- 用户头像 -->
+                        <div class="user-avatar">
+                          <img
+                            src="img/User.png"
+                            alt="smiley"
+                            class="__EmojiPicker__ epr-emoji-img"
+                            loading="eager"
+                            style="font-size: 18px; height: 18px; width: 18px"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 用户对话框内容 -->
+                    <div class="chat_chat-message-item__dKqMl">
+                      <!-- 内容 -->
+                      <div
+                        class="markdown-body"
+                        dir="auto"
+                        style="font-size: 14px"
+                      >
+                        <p
+                          class="message_user"
+                          node="[object Object]"
+                          dir="auto"
+                        >
+                          成功登入聊天系统
+                        </p>
+                      </div>
+                      <!-- 动作功能 -->
+                      <div class="chat_chat-message-actions__H90hg">
+                        <div class="chat_chat-input-actions__mwYC_">
+                          <!-- 复制功能 -->
+                          <div
+                            class="chat_chat-input-action__DMW7Y clickable user"
+                            style="--icon-width: 16px; --full-width: 16px"
+                            onclick="message_copy(event)"
+                          >
+                            <div class="chat_icon__Ly3TN">
+                              <i class="fas fa-copy copy_svg__icon"></i>
+                            </div>
+                            <div class="chat_text__TkPfN">复制</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 用户对话框时间信息 -->
+                    <div class="chat_chat-message-action-date__RsXTn"></div>
+                  </div>
+                </div>
+                <!-- 服务器对话框 -->
+                <div class="chat_chat-message__dg8rL">
+                  <div class="chat_chat-message-container__O_X8_">
+                    <div class="chat_chat-message-header__Dny_K">
+                      <div class="chat_chat-message-avatar__3QeMq">
+                        <div class="no-dark">
+                          <img src="img/AIBot.png" width="30" height="30" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="chat_chat-message-item__dKqMl">
+                      <div
+                        class="markdown-body"
+                        dir="auto"
+                        style="font-size: 14px"
+                      >
+                        <p
+                          class="message_roboat"
+                          node="[object Object]"
+                          dir="auto"
+                        >
+                          欢迎来到湘潭大学智能教辅平台，您有什么需要呢？
+                        </p>
+                      </div>
+                      <div class="chat_chat-message-actions__H90hg">
+                        <div class="chat_chat-input-actions__mwYC_">
+                          <div
+                            class="chat_chat-input-action__DMW7Y clickable else"
+                            style="--icon-width: 16px; --full-width: 16px"
+                            onclick="message_copy(event)"
+                          >
+                            <div class="chat_icon__Ly3TN">
+                              <i class="fas fa-copy copy_svg__icon"></i>
+                              <div class="chat_text__TkPfN">复制</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="chat_chat-message-action-date__RsXTn">
+                      预设提示词
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 3、聊天界面：底部聊天输入框与功能选择 -->
+            <div class="chat_chat-input-panel__rO72m">
+              <!-- 底部聊天功能选择 -->
+              <div class="chat_chat-input-actions__mwYC_">
+                <!-- 智能选择 -->
+                <div
+                  class="chat_chat-input-action__DMW7Y clickable chat_hover__wrclw"
+                  style="--icon-width: 16px; --full-width: 96.11250305175781px"
+                  onclick="add()"
+                >
+                  <div class="chat_icon__Ly3TN">
+                    <i class="fas fa-robot robot_svg__icon"></i>
+                  </div>
+                  <div class="chat_text__TkPfN">@聊天机器人</div>
+                </div>
+                <!-- nick name -->
+                <div>
+                  <button onclick="upload()">📁</button>
+                  <input
+                    type="file"
+                    id="fileInput"
+                    style="display: none"
+                    onchange="handleFiles(this.files)"
+                  />
+                  <div id="uploadStatus"></div>
+                  <progress
+                    id="uploadProgress"
+                    value="0"
+                    max="100"
+                    style="width: 100%"
+                  ></progress>
+                </div>
+              </div>
+              <!-- 底部聊天输入框 -->
+              <div class="chat_chat-input-panel-inner___IQHi">
+                <form
+                  action=""
+                  onsubmit="sendMessage(event)"
+                  class="chat_chat-input-panel-inner___IQHi"
+                >
+                  <!-- 提示词 -->
+                  <textarea
+                    class="chat_chat-input__PQ_oF"
+                    id="messageText"
+                    placeholder="请输入对话内容"
+                    rows="3"
+                    style="font-size: 14px"
+                  >
+                  </textarea>
+                  <!-- 发送按钮 -->
+                  <button
+                    class="button_icon-button__VwAMf undefined undefined undefined chat_chat-input-send__GFQZo clickable button_primary__dwYZ6"
+                    role="button"
+                  >
+                    <div class="button_icon-button-icon__AMZta no-dark">
+                      <i class="fas fa-paper-plane send-white_svg__icon"></i>
+                    </div>
+                    <div class="button_icon-button-text__my76e">发送</div>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <!-- 4、创建新的聊天室：聊天室名字 -->
+            <div class="modal-mask4" style="display: none">
+              <div
+                class="ui-lib_modal-container__V07hJ false"
+                style="
+                  position: fixed;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                "
+              >
+                <div class="ui-lib_modal-header__ez8kk">
+                  <div class="ui-lib_modal-title__uDyyZ">创建聊天室</div>
+                  <!-- 关闭按钮 -->
+                  <div
+                    class="ui-lib_modal-header-actions__sGgzm"
+                    onclick="hide_chatroom_name(event)"
+                  >
+                    <div class="ui-lib_modal-header-action__TQHsu">
+                      <i class="fas fa-times close_svg__icon"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-lib_modal-content___F0dm">
+                  <div class="ui-lib_list__1KN23">
+                    <div class="ui-lib_list-item__YH0DO">
+                      <div class="ui-lib_list-header__RwThu">
+                        <div class="ui-lib_list-item-title__Fsa9c">
+                          <div>创建新的聊天室</div>
+                          <div class="ui-lib_list-item-sub-title__jSgHb">
+                            为你的聊天室命名
+                          </div>
+                        </div>
+                      </div>
+                      <input
+                        id="block_room_name"
+                        type="text"
+                        value="聊天室名称"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-lib_modal-footer__U6Gef">
+                  <div class="ui-lib_modal-actions__Ag5eX">
+                    <!-- 取消按钮 -->
+                    <div
+                      class="ui-lib_modal-action__o5vae"
+                      onclick="hide_chatroom_name(event)"
+                    >
+                      <button
+                        class="button_icon-button__VwAMf undefined undefined undefined clickable undefined"
+                        role="button"
+                      >
+                        <div class="button_icon-button-icon__AMZta false">
+                          <i class="fas fa-times cancel_svg__icon"></i>
+                        </div>
+                        <div class="button_icon-button-text__my76e">取消</div>
+                      </button>
+                    </div>
+                    <div
+                      class="ui-lib_modal-action__o5vae"
+                      onclick="createRoom(event)"
+                    >
+                      <button
+                        class="button_icon-button__VwAMf undefined undefined undefined clickable button_primary__dwYZ6"
+                        role="button"
+                      >
+                        <div class="button_icon-button-icon__AMZta no-dark">
+                          <i class="fas fa-check confirm_svg__icon"></i>
+                        </div>
+                        <div class="button_icon-button-text__my76e">确认</div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="test.js"></script>
+    <script src="window_manage.js"></script>
+    <script src="other_manage.js"></script>
+  </body>
+</html>

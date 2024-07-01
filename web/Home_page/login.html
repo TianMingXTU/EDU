@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - ChatGPT Software</title>
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="email"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <div id="login-error" class="error-message">
+          Incorrect username or password. Please try again. 😓
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <a href="register.html" class="register-link">
+        Don't have an account? Register here. 🔥
+      </a>
+    </div>
+    <script src="../js/login.js"></script>
+  </body>
+</html>

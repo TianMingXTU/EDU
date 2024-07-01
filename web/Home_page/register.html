@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - ChatGPT Software</title>
+    <link rel="stylesheet" href="../css/register.css" />
+  </head>
+  <body>
+    <div class="register-container">
+      <h2>Register</h2>
+      <form id="register-form">
+        <input type="text" id="name" name="name" placeholder="Name" required />
+        <input
+          type="text"
+          id="university"
+          name="university"
+          placeholder="University"
+          required
+        />
+        <input
+          type="text"
+          id="college"
+          name="college"
+          placeholder="College"
+          required
+        />
+        <input
+          type="text"
+          id="major"
+          name="major"
+          placeholder="Major"
+          required
+        />
+        <input
+          type="text"
+          id="class"
+          name="class"
+          placeholder="Class"
+          required
+        />
+        <input
+          type="text"
+          id="student-id"
+          name="student-id"
+          placeholder="Student ID"
+          required
+        />
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="email"
+          required
+        />
+        <select id="role" name="role" required>
+          <option value="" disabled selected>Select Role</option>
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+        </select>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <div id="password-error" class="error-message">
+          Password must be at least 6 characters long.
+        </div>
+        <input
+          type="password"
+          id="confirm-password"
+          name="confirm-password"
+          placeholder="Confirm Password"
+          required
+        />
+        <div id="confirm-password-error" class="error-message">
+          Passwords do not match.
+        </div>
+        <button type="submit">Register</button>
+      </form>
+      <a href="login.html" class="login-link"
+        >Already have an account? Login here.</a
+      >
+    </div>
+    <script src="../js/register.js"></script>
+  </body>
+</html>

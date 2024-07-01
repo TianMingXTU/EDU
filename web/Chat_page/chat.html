@@ -1,0 +1,166 @@
+<div class="chat_chat__ZebHg">
+  <!-- 聊天界面头部 -->
+  <div class="window-header" data-tauri-drag-region="true">
+    <div class="window-header-title chat_chat-body-title__d2ItC">
+      <div class="window-header-main-title chat_chat-body-main-title__jUL6h">
+        聊天室
+      </div>
+      <div class="window-header-sub-title">AI聊天教辅系统</div>
+    </div>
+    <div>
+      <div class="window-actions">
+        <div class="window-action-button">
+          <button
+            class="button_icon-button__VwAMf button_border__F3gcK undefined undefined clickable undefined"
+            title="分享本页"
+            role="button"
+          >
+            <div class="button_icon-button-icon__AMZta false">
+              <i class="fas fa-share" aria-hidden="true"></i>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="chat_prompt-toast___VCUf"></div>
+  </div>
+  <!-- 聊天界面中部 -->
+  <div
+    class="chat_chat-body__QFv4x"
+    style="display: flex; flex-direction: row-reverse"
+  >
+    <div class="chat_chat_body_people">
+      <div class="chat_chat_body_people_header">数字人显示区：</div>
+      <div class="chat_chat_body_people_members"></div>
+    </div>
+    <div class="chat_chat-body__QFv5x">
+      <div class="chat_chat-message-user__ZtTEj">
+        <div class="chat_chat-message-container__O_X8_">
+          <div class="chat_chat-message-header__Dny_K">
+            <div class="chat_chat-message-avatar__3QeMq">
+              <div class="user-avatar">
+                <img
+                  src="../img/User.png"
+                  alt="smiley"
+                  class="__EmojiPicker__ epr-emoji-img"
+                  loading="eager"
+                  style="font-size: 18px; height: 18px; width: 18px"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="chat_chat-message-item__dKqMl">
+            <div class="markdown-body" dir="auto" style="font-size: 14px">
+              <p class="message_user" node="[object Object]" dir="auto">
+                成功登入聊天系统
+              </p>
+            </div>
+            <div class="chat_chat-message-actions__H90hg">
+              <div class="chat_chat-input-actions__mwYC_">
+                <div
+                  class="chat_chat-input-action__DMW7Y clickable user"
+                  style="--icon-width: 16px; --full-width: 16px"
+                  onclick="message_copy(event)"
+                >
+                  <div class="chat_icon__Ly3TN">
+                    <i class="fas fa-copy copy_svg__icon"></i>
+                  </div>
+                  <div class="chat_text__TkPfN">复制</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chat_chat-message-action-date__RsXTn"></div>
+        </div>
+      </div>
+      <div class="chat_chat-message__dg8rL">
+        <div class="chat_chat-message-container__O_X8_">
+          <div class="chat_chat-message-header__Dny_K">
+            <div class="chat_chat-message-avatar__3QeMq">
+              <div class="no-dark">
+                <img src="../img/AIBot.png" width="30" height="30" />
+              </div>
+            </div>
+          </div>
+          <div class="chat_chat-message-item__dKqMl">
+            <div class="markdown-body" dir="auto" style="font-size: 14px">
+              <p class="message_roboat" node="[object Object]" dir="auto">
+                欢迎来到湘潭大学智能教辅平台，您有什么需要呢？
+              </p>
+            </div>
+            <div class="chat_chat-message-actions__H90hg">
+              <div class="chat_chat-input-actions__mwYC_">
+                <div
+                  class="chat_chat-input-action__DMW7Y clickable else"
+                  style="--icon-width: 16px; --full-width: 16px"
+                  onclick="message_copy(event)"
+                >
+                  <div class="chat_icon__Ly3TN">
+                    <i class="fas fa-copy copy_svg__icon"></i>
+                    <div class="chat_text__TkPfN">复制</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chat_chat-message-action-date__RsXTn">预设提示词</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 聊天界面底部聊天输入框与功能选择 -->
+  <div class="chat_chat-input-panel__rO72m">
+    <div class="chat_chat-input-actions__mwYC_">
+      <div
+        class="chat_chat-input-action__DMW7Y clickable chat_hover__wrclw"
+        style="--icon-width: 16px; --full-width: 96.11250305175781px"
+        onclick="add()"
+      >
+        <div class="chat_icon__Ly3TN">
+          <i class="fas fa-robot robot_svg__icon"></i>
+        </div>
+        <div class="chat_text__TkPfN">@聊天机器人</div>
+      </div>
+      <div>
+        <button onclick="upload()">📁</button>
+        <input
+          type="file"
+          id="fileInput"
+          style="display: none"
+          onchange="handleFiles(this.files)"
+        />
+        <div id="uploadStatus"></div>
+        <progress
+          id="uploadProgress"
+          value="0"
+          max="100"
+          style="width: 100%"
+        ></progress>
+      </div>
+    </div>
+    <div class="chat_chat-input-panel-inner___IQHi">
+      <form
+        action=""
+        onsubmit="sendMessage(event)"
+        class="chat_chat-input-panel-inner___IQHi"
+      >
+        <textarea
+          class="chat_chat-input__PQ_oF"
+          id="messageText"
+          placeholder="请输入对话内容"
+          rows="3"
+          style="font-size: 14px"
+        ></textarea>
+        <button
+          class="button_icon-button__VwAMf undefined undefined undefined chat_chat-input-send__GFQZo clickable button_primary__dwYZ6"
+          role="button"
+        >
+          <div class="button_icon-button-icon__AMZta no-dark">
+            <i class="fas fa-paper-plane send-white_svg__icon"></i>
+          </div>
+          <div class="button_icon-button-text__my76e">发送</div>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

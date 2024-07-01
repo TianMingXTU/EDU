@@ -1,0 +1,137 @@
+<div class="home_sidebar-header___NHg_" data-tauri-drag-region="true">
+  <div class="home_sidebar-title__l3KhW" data-tauri-drag-region="true">
+    OBEvolution AI
+  </div>
+  <div class="home_sidebar-sub-title__sbT6Z">
+    <style>
+      button {
+        color: #444444;
+        background: #f3f3f3;
+        border: 1px #dadada solid;
+        padding: 5px 10px;
+        border-radius: 2px;
+        font-weight: bold;
+        font-size: 9pt;
+        outline: none;
+      }
+      button:hover {
+        border: 1px #c6c6c6 solid;
+        box-shadow: 1px 1px 1px #eaeaea;
+        color: #333333;
+        background: #f7f7f7;
+      }
+      button:active {
+        box-shadow: inset 1px 1px 1px #dfdfdf;
+      }
+    </style>
+    <div id="shiny-shadow">
+      <p>基于ChatGPT的数字人教辅系统</p>
+    </div>
+  </div>
+  <div class="home_sidebar-logo__Cd7hL no-dark">
+    <img src="../img/ChatGPT.png" width="44" height="44" />
+  </div>
+</div>
+<div class="home_sidebar-header-bar__SVjIN">
+  <button
+    class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined home_sidebar-bar-button__zJdvw clickable undefined"
+    role="button"
+    onclick="creat_personal_info(event)"
+  >
+    <div class="button_icon-button-icon__AMZta false">
+      <i class="fas fa-user user_icon"></i>
+    </div>
+    <div class="button_icon-button-text__my76e">个人中心</div>
+  </button>
+  <button
+    class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined home_sidebar-bar-button__zJdvw clickable undefined"
+    role="button"
+    onclick="creat_know_more(event)"
+  >
+    <div class="button_icon-button-icon__AMZta false">
+      <i class="fas fa-info-circle info_icon"></i>
+    </div>
+    <div class="button_icon-button-text__my76e">更多了解</div>
+  </button>
+</div>
+<div class="home_sidebar-body__9zbei">
+  <div id="chat_side_bar">
+    <div
+      class="home_chat-item__Oblai false"
+      data-room-id="private_assistant"
+      onclick="selectRoom(event)"
+    >
+      <div class="home_chat-item-title__sRstw">你的私人助手</div>
+      <div class="home_chat-item-info__9r6z_">
+        <div class="home_chat-item-count____Lpy">群成员数量：1人</div>
+      </div>
+      <div class="home_chat-item-delete__3qV5m" onclick="deleteChatRoom(event)">
+        <i class="fas fa-trash delete_icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="home_sidebar-tail__T2_u7">
+  <div class="home_sidebar-actions__LcDT9">
+    <div class="home_sidebar-action__IVfyJ home_mobile__Wfp_k">
+      <button
+        class="button_icon-button__VwAMf undefined undefined undefined clickable undefined"
+        role="button"
+      >
+        <div class="button_icon-button-icon__AMZta false">
+          <i class="fas fa-times delete_icon"></i>
+        </div>
+      </button>
+    </div>
+    <div class="home_sidebar-action__IVfyJ" onclick="creat_news(event)">
+      <button
+        class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined clickable undefined"
+        role="button"
+      >
+        <div class="button_icon-button-icon__AMZta false">
+          <i class="fas fa-bullhorn notice_icon"></i>
+        </div>
+      </button>
+    </div>
+    <div
+      class="home_sidebar-action__IVfyJ"
+      onclick="show_author_ramblings(event)"
+    >
+      <button
+        class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined clickable undefined"
+        role="button"
+      >
+        <div class="button_icon-button-icon__AMZta false">
+          <i class="fas fa-comment-dots author_icon"></i>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div>
+    <button
+      class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined clickable undefined"
+      role="button"
+      onclick="joinRoom(event)"
+    >
+      <div class="button_icon-button-icon__AMZta false">
+        <i class="fas fa-plus add_icon"></i>
+      </div>
+      <div class="button_icon-button-text__my76e">加入聊天</div>
+    </button>
+  </div>
+  <div>
+    <button
+      class="button_icon-button__VwAMf undefined button_shadow__G4m_0 undefined clickable undefined"
+      role="button"
+      onclick="createChatroomName(event)"
+    >
+      <div class="button_icon-button-icon__AMZta false">
+        <i class="fas fa-plus add_icon"></i>
+      </div>
+      <div class="button_icon-button-text__my76e">新的聊天</div>
+    </button>
+  </div>
+</div>
+<div class="home_sidebar-drag__G9SJI">
+  <i class="fas fa-arrows-alt"></i>
+</div>

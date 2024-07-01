@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实时聊天室</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- 可以根据需要添加CSS文件 -->
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-sidebar">
+        <div id="chat_side_bar">
+          <!-- 聊天室列表会动态添加到这里 -->
+        </div>
+        <button onclick="joinRoom()">加入聊天室</button>
+        <button onclick="showChatroomName()">创建聊天室</button>
+      </div>
+      <div class="chat-main">
+        <div class="chat-header">
+          <h2 class="window-header-main-title">聊天室</h2>
+        </div>
+        <div class="chat-body chat_chat-body__QFv5x">
+          <!-- 聊天消息会动态添加到这里 -->
+        </div>
+        <div class="chat-footer">
+          <input type="text" id="messageText" placeholder="输入消息..." />
+          <button id="sendButton">发送</button>
+          <input type="file" id="fileInput" />
+          <button id="uploadButton">上传文件</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 模态框用于创建聊天室 -->
+    <div class="modal-mask4" style="display: none">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+          <h3>创建聊天室</h3>
+          <input
+            type="text"
+            id="block_room_name"
+            placeholder="输入聊天室名称"
+          />
+          <button onclick="createRoom(event)">创建</button>
+          <button onclick="hideChatroomName(event)">取消</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 用户ID和昵称，可以根据需要更改 -->
+    <input type="hidden" id="username" value="user123" />
+    <input type="hidden" id="nickname" value="老六" />
+
+    <!-- 引入JavaScript文件 -->
+    <script src="websocket.js" type="module"></script>
+    <script src="message.js" type="module"></script>
+    <script src="chatroom.js" type="module"></script>
+    <script src="ui.js" type="module"></script>
+    <script src="utils.js" type="module"></script>
+    <script src="fileUpload.js" type="module"></script>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>
